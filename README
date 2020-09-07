@@ -1,0 +1,45 @@
+Intro :
+
+    This project Simple mail management system with cmd-cli.
+    Operations:
+        Login
+        SignUp
+        View All Mail List
+        View Specific Mail
+        Compose and Send Mail
+        Delete Mail
+
+DB Setup: (JDBC Used)
+    service mysql start
+    mysql -u <name> -p <pass> 
+    show databases;
+    create database simplemail;
+    use simplemail
+    create table user_accounts (mailid varchar(50) NOT NULL UNIQUE  PRIMARY KEY,password varchar(50) not null ); 
+    describe user_accounts;
+    create table mails(
+      mailid varchar(50) NOT NULL,
+      id int NOT NULL,
+      to_add varchar(60) NOT NULL,
+      cc_add varchar(60),
+      bcc_add varchar(60),
+      subject varchar(256),
+      content text,
+      constraint PK PRIMARY KEY (id)
+    );
+
+    show tables;
+    alter table mails modify id int auto_increment;
+
+
+Execution of program :
+Build:
+    cd src
+    javac -classpath .:../lib/* -d ../target Mail.java
+
+Run: 
+    cd target
+    java -classpath .:../lib/* Mail
+  
+
+    
